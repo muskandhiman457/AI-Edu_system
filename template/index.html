@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Career Recommender</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chatbox">
+    <h2>AI Career Recommendation Assistant</h2>
+    <textarea id="user_input" placeholder="Tell me about yourself..."></textarea>
+    <button onclick="sendMessage()">Get Recommendations</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const message = document.getElementById('user_input').value;
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `message=${message}`
+      });
+      const data = await response.json();
+      document.getElementById('output').innerHTML = `
+        <h3>Top Course Recommendations:</h3>
+        <ul>${data.courses.map(c => `<li>${c.course_name}</li>`).join('')}</ul>
+        <h3>Career Paths:</h3>
+        <ul>${data.careers.map(c => `<li>${c.career_name}</li>`).join('')}</ul>
+        <h3>University Resources:</h3>
+        <ul>${data.resources.map(r => `<li>${r.resource_name}</li>`).join('')}</ul>
+      `;
+    }
+  </script>
+</body>
+</html>

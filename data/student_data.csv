@@ -1,0 +1,51 @@
+Name,Department,CGPA,Major Projects,Technologies Used,Internship Domain,Desired Future Role
+Student 1,Cybersecurity,6.61,"AI-Based Resume Shortlisting, Job Portal Web App","Firebase, Python, React, TensorFlow",UI/UX Design,Cybersecurity Analyst
+Student 2,Information Technology,7.64,"Virtual Reality Education Platform, Smart Waste Management System, Disease Prediction System","C#, IoT, Pandas, Python, Raspberry Pi, Unity",DevOps,Data Analyst
+Student 3,Computer Science Engineering,7.91,"Job Portal Web App, Stock Price Prediction, Voice Controlled Smart Mirror","Firebase, Pandas, Python, React, TensorFlow, Voice Recognition",DevOps,Cloud Engineer
+Student 4,Information Technology,6.65,"Personal Finance Tracker, Chatbot for Student Queries","Flask, Java, MySQL, NLP, Python",Machine Learning,Cybersecurity Analyst
+Student 5,Cybersecurity,7.25,"AI-Powered Traffic Management, IoT-Based Smart Home Automation, E-Commerce Website","Arduino, C++, IoT, MongoDB, Node.js, OpenCV, Python, React",Artificial Intelligence,Machine Learning Engineer
+Student 6,Artificial Intelligence & Data Science,9.19,"Credit Card Fraud Detection, Stock Price Prediction","Pandas, Python, Scikit-learn, TensorFlow",App Development,Cybersecurity Analyst
+Student 7,Cloud Computing,9.28,"E-Commerce Website, Virtual Reality Education Platform, Credit Card Fraud Detection","C#, MongoDB, Node.js, Python, React, Scikit-learn, Unity",Artificial Intelligence,Data Analyst
+Student 8,Artificial Intelligence & Data Science,9.12,"IoT-Based Smart Home Automation, Stock Price Prediction, Online Voting System","Arduino, Blockchain, C++, IoT, Pandas, Solidity, TensorFlow",DevOps,Cloud Engineer
+Student 9,Computer Science Engineering,7.02,"Smart Waste Management System, Credit Card Fraud Detection","IoT, Python, Raspberry Pi, Scikit-learn",UI/UX Design,Machine Learning Engineer
+Student 10,Artificial Intelligence & Data Science,7.21,"Personal Finance Tracker, Job Portal Web App","Firebase, Java, MySQL, React",Cybersecurity,Software Engineer
+Student 11,Computer Science Engineering,8.59,"E-Commerce Website, Chatbot for Student Queries","Flask, MongoDB, NLP, Node.js, Python, React",Web Development,DevOps Engineer
+Student 12,Software Engineering,9.3,"Smart Waste Management System, Chatbot for Student Queries, Face Recognition Attendance System","Flask, IoT, NLP, OpenCV, Python, Raspberry Pi",Machine Learning,Machine Learning Engineer
+Student 13,Artificial Intelligence & Data Science,9.73,"Smart Waste Management System, Movie Recommendation System, IoT-Based Smart Home Automation","Arduino, C++, Flask, IoT, Python, Raspberry Pi",DevOps,Data Analyst
+Student 14,Artificial Intelligence & Data Science,6.65,"Cloud Storage Optimization, Movie Recommendation System, Virtual Reality Education Platform","AWS, C#, Docker, Flask, Python, Unity",Artificial Intelligence,Machine Learning Engineer
+Student 15,Cloud Computing,7.18,"AI-Powered Traffic Management, Cloud Storage Optimization","AWS, Docker, OpenCV, Python",App Development,AI Engineer
+Student 16,Information Technology,8.27,"Weather Forecasting, Stock Price Prediction","LSTM, Pandas, TensorFlow",Software Engineering,Cybersecurity Analyst
+Student 17,Computer Science Engineering,7.45,"Real-Time Emotion Detection, Stock Price Prediction","Keras, OpenCV, Pandas, TensorFlow",DevOps,Mobile App Developer
+Student 18,Artificial Intelligence & Data Science,7.22,"AI-Powered Traffic Management, Voice Controlled Smart Mirror, IoT-Based Smart Home Automation","Arduino, C++, IoT, OpenCV, Python, Voice Recognition",DevOps,Mobile App Developer
+Student 19,Cybersecurity,8.44,"Voice Controlled Smart Mirror, AI-Based Resume Shortlisting","Python, TensorFlow, Voice Recognition",Data Science,Cybersecurity Analyst
+Student 20,Artificial Intelligence & Data Science,6.54,"Job Portal Web App, Face Recognition Attendance System, Disease Prediction System","Firebase, OpenCV, Pandas, Python, React",UI/UX Design,Machine Learning Engineer
+Student 21,Computer Science Engineering,8.96,"Job Portal Web App, Online Voting System","Blockchain, Firebase, React, Solidity",Cybersecurity,DevOps Engineer
+Student 22,Information Technology,9.37,"Online Voting System, Real-Time Emotion Detection, Personal Finance Tracker","Blockchain, Java, Keras, MySQL, OpenCV, Solidity",Software Engineering,Data Analyst
+Student 23,Computer Science Engineering,9.2,"Credit Card Fraud Detection, Cyber Threat Detection Tool","Kali Linux, Python, Scikit-learn, Wireshark",Cloud Computing,Cloud Engineer
+Student 24,Cloud Computing,9.45,"Movie Recommendation System, Credit Card Fraud Detection","Flask, Python, Scikit-learn",Machine Learning,Cloud Engineer
+Student 25,Computer Science Engineering,6.53,"Virtual Reality Education Platform, AI-Powered Traffic Management","C#, OpenCV, Python, Unity",App Development,Software Engineer
+Student 26,Computer Science Engineering,7.82,"Virtual Reality Education Platform, Real-Time Emotion Detection","C#, Keras, OpenCV, Unity",Cloud Computing,Machine Learning Engineer
+Student 27,Computer Science Engineering,8.68,"E-Commerce Website, Real-Time Emotion Detection","Keras, MongoDB, Node.js, OpenCV, React",Artificial Intelligence,AI Engineer
+Student 28,Cybersecurity,7.14,"Cloud Storage Optimization, Weather Forecasting, E-Commerce Website","AWS, Docker, LSTM, MongoDB, Node.js, React, TensorFlow",UI/UX Design,Machine Learning Engineer
+Student 29,Computer Science Engineering,9.12,"E-Commerce Website, Online Voting System, Weather Forecasting","Blockchain, LSTM, MongoDB, Node.js, React, Solidity, TensorFlow",DevOps,Mobile App Developer
+Student 30,Software Engineering,8,"Smart Waste Management System, Job Portal Web App, IoT-Based Smart Home Automation","Arduino, C++, Firebase, IoT, Raspberry Pi, React",App Development,Mobile App Developer
+Student 31,Cloud Computing,7.29,"Cloud Storage Optimization, E-Commerce Website, IoT-Based Smart Home Automation","AWS, Arduino, C++, Docker, IoT, MongoDB, Node.js, React",UI/UX Design,Cybersecurity Analyst
+Student 32,Software Engineering,9.48,"Voice Controlled Smart Mirror, Personal Finance Tracker","Java, MySQL, Python, Voice Recognition",Artificial Intelligence,Software Engineer
+Student 33,Software Engineering,7.05,"AI-Based Resume Shortlisting, Job Portal Web App","Firebase, Python, React, TensorFlow",Web Development,DevOps Engineer
+Student 34,Computer Science Engineering,9.72,"Cyber Threat Detection Tool, IoT-Based Smart Home Automation, Weather Forecasting","Arduino, C++, IoT, Kali Linux, LSTM, TensorFlow, Wireshark",Artificial Intelligence,Machine Learning Engineer
+Student 35,Software Engineering,9.18,"Face Recognition Attendance System, Stock Price Prediction, Voice Controlled Smart Mirror","OpenCV, Pandas, Python, TensorFlow, Voice Recognition",DevOps,Web Developer
+Student 36,Software Engineering,9.08,"Movie Recommendation System, IoT-Based Smart Home Automation","Arduino, C++, Flask, IoT, Python",App Development,Web Developer
+Student 37,Cybersecurity,6.53,"Chatbot for Student Queries, AI-Based Resume Shortlisting","Flask, NLP, Python, TensorFlow",Data Science,Cloud Engineer
+Student 38,Cybersecurity,8.58,"Disease Prediction System, Movie Recommendation System","Flask, Pandas, Python",Artificial Intelligence,Web Developer
+Student 39,Cloud Computing,9.62,"Chatbot for Student Queries, Cyber Threat Detection Tool, E-Commerce Website","Flask, Kali Linux, MongoDB, NLP, Node.js, Python, React, Wireshark",UI/UX Design,Software Engineer
+Student 40,Cybersecurity,8.27,"Voice Controlled Smart Mirror, Movie Recommendation System, Cyber Threat Detection Tool","Flask, Kali Linux, Python, Voice Recognition, Wireshark",DevOps,Machine Learning Engineer
+Student 41,Information Technology,9.37,"Virtual Reality Education Platform, Personal Finance Tracker","C#, Java, MySQL, Unity",Software Engineering,Mobile App Developer
+Student 42,Computer Science Engineering,8.42,"Stock Price Prediction, Cloud Storage Optimization","AWS, Docker, Pandas, TensorFlow",Artificial Intelligence,Cloud Engineer
+Student 43,Computer Science Engineering,9.57,"Cloud Storage Optimization, E-Commerce Website","AWS, Docker, MongoDB, Node.js, React",App Development,Cloud Engineer
+Student 44,Artificial Intelligence & Data Science,7.6,"AI-Powered Traffic Management, Face Recognition Attendance System","OpenCV, Python",Data Science,Web Developer
+Student 45,Information Technology,8.18,"Job Portal Web App, AI-Powered Traffic Management","Firebase, OpenCV, Python, React",Cybersecurity,Cybersecurity Analyst
+Student 46,Software Engineering,8.74,"Movie Recommendation System, Online Voting System","Blockchain, Flask, Python, Solidity",Software Engineering,UI/UX Designer
+Student 47,Software Engineering,7.75,"Cyber Threat Detection Tool, Smart Waste Management System","IoT, Kali Linux, Raspberry Pi, Wireshark",Software Engineering,AI Engineer
+Student 48,Artificial Intelligence & Data Science,6.81,"Credit Card Fraud Detection, E-Commerce Website, Online Voting System","Blockchain, MongoDB, Node.js, Python, React, Scikit-learn, Solidity",Artificial Intelligence,Software Engineer
+Student 49,Software Engineering,8.9,"Job Portal Web App, Stock Price Prediction","Firebase, Pandas, React, TensorFlow",Software Engineering,Cloud Engineer
+Student 50,Software Engineering,8.95,"AI-Powered Traffic Management, Disease Prediction System, Cyber Threat Detection Tool","Kali Linux, OpenCV, Pandas, Python, Wireshark",Cybersecurity,AI Engineer
