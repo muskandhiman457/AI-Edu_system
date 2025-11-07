@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>AI Education Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat-new.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+        <header class="header">
+            <h1>AI Career Guide</h1>
+        </header>
+        
+        <section class="input-section">
+            <div class="input-wrapper">
+                <label class="input-label">Enter your interests, skills, or field of study:</label>
+                <form class="send-form" id="send-form" onsubmit="return false;">
+                    <input type="text" id="input" placeholder="e.g., Machine Learning, Data Science, Python" autocomplete="off">
+                    <button type="submit" id="send-btn" class="send-btn">Get Recommendations</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div class="results-card">
+                <h2>Career Path</h2>
+                <div class="result-item">
+                    <span class="result-item-title">Start with Python</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">Learn Data Analysis</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">Apply for Data Analyst Roles</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">Build ML Projects</span>
+                </div>
+            </div>
+
+            <div class="results-card">
+                <h2>Recommended Courses</h2>
+                <div class="result-item">
+                    <span class="result-item-title">Machine Learning Course</span>
+                    <a href="#" class="result-item-link">Visit</a>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">Python for Data Science</span>
+                    <a href="#" class="result-item-link">Visit</a>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">Data Analysis Basics</span>
+                    <a href="#" class="result-item-link">Visit</a>
+                </div>
+            </div>
+
+            <div class="results-card">
+                <h2>Suggested Universities</h2>
+                <div class="result-item">
+                    <span class="result-item-title">Stanford University</span>
+                    <a href="#" class="result-item-link">Visit</a>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">MIT</span>
+                    <a href="#" class="result-item-link">Visit</a>
+                </div>
+                <div class="result-item">
+                    <span class="result-item-title">UC Berkeley</span>
+                    <a href="#" class="result-item-link">Visit</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="chat-area">
+            <div id="messages" class="messages">
+                <div class="message bot-message">
+                    <div class="avatar">🎓</div>
+                    <div class="bubble">Hello! I'm your AI Education Assistant. How can I help you learn today?</div>
+                </div>
+            </div>
+        </div>
+
+        <form class="send-form" id="send-form" onsubmit="return false;">
+            <button type="button" class="attach-btn" title="Upload Resume">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                </svg>
+            </button>
+            <input type="file" id="file-input" style="display: none" accept=".pdf,.doc,.docx">
+            <input type="text" id="input" placeholder="Upload your resume or type a message..." autocomplete="off">
+            <button type="submit" id="send-btn" class="send-btn" title="Send message">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('send-form');
+        const input = document.getElementById('input');
+        const sendBtn = document.getElementById('send-btn');
+
+        async function getRecommendations(interests) {
+            if (!interests || !interests.trim()) return;
+
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'Loading...';
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: interests })
+                });
+                
+                const data = await response.json();
+                
+                // Update results based on the response
+                if (data && (data.courses || data.careers || data.resources)) {
+                    // Clear existing results if any
+                    document.querySelectorAll('.results-section .result-item').forEach(item => item.remove());
+                    
+                    const careerPath = document.querySelector('.results-card:nth-child(1)');
+                    const courses = document.querySelector('.results-card:nth-child(2)');
+                    const universities = document.querySelector('.results-card:nth-child(3)');
+                    
+                    if (data.careers) {
+                        data.careers.forEach(career => {
+                            const item = createResultItem(career.title, null);
+                            careerPath.appendChild(item);
+                        });
+                    }
+                    
+                    if (data.courses) {
+                        data.courses.forEach(course => {
+                            const item = createResultItem(course.title, course.url);
+                            courses.appendChild(item);
+                        });
+                    }
+                    
+                    if (data.resources) {
+                        data.resources.forEach(resource => {
+                            const item = createResultItem(resource.title, resource.url);
+                            universities.appendChild(item);
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to get recommendations. Please try again.');
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'Get Recommendations';
+            }
+        }
+
+        function createResultItem(title, url) {
+            const item = document.createElement('div');
+            item.className = 'result-item';
+            
+            const titleSpan = document.createElement('span');
+            titleSpan.className = 'result-item-title';
+            titleSpan.textContent = title;
+            item.appendChild(titleSpan);
+            
+            if (url) {
+                const link = document.createElement('a');
+                link.className = 'result-item-link';
+                link.href = url;
+                link.textContent = 'Visit';
+                link.target = '_blank';
+                item.appendChild(link);
+            }
+            
+            return item;
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            getRecommendations(input.value);
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                getRecommendations(input.value);
+            }
+        });
+
+            document.querySelectorAll('.quick-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    inputEl.value = btn.textContent;
+                    inputEl.focus();
+                });
+            });
+
+            // File handling
+            const fileInput = document.getElementById('file-input');
+            const attachBtn = document.querySelector('.attach-btn');
+
+            attachBtn.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    const file = e.target.files[0];
+                    if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                        alert('Please upload a resume smaller than 5MB');
+                        fileInput.value = '';
+                        return;
+                    }
+                    
+                    const allowedTypes = [
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                    ];
+                    
+                    if (!allowedTypes.includes(file.type)) {
+                        alert('Please upload a PDF or Word document');
+                        fileInput.value = '';
+                        return;
+                    }
+
+                    // Show the filename in the input
+                    inputEl.value = `📄 ${file.name} selected`;
+                    inputEl.setAttribute('readonly', true);
+                    
+                    // Change send button color to indicate ready to upload
+                    document.querySelector('.send-btn').style.color = '#10b981';
+                }
+            });
+
+            // Reset input when clicking after file selection
+            inputEl.addEventListener('click', () => {
+                if (inputEl.hasAttribute('readonly')) {
+                    inputEl.value = '';
+                    inputEl.removeAttribute('readonly');
+                    fileInput.value = '';
+                    document.querySelector('.send-btn').style.color = '';
+                }
+            });
+
+            // --- Mobile keyboard / Android fallback handling ---
+            // Try to keep the input visible when the on-screen keyboard opens (Android Chrome)
+            const messagesContainer = document.getElementById('messages');
+            const sendForm = document.getElementById('send-form');
+            const header = document.querySelector('.chat-header');
+            const quickActions = document.querySelector('.quick-actions');
+
+                function adjustForViewport() {
+                    try {
+                        const vv = window.visualViewport;
+                        const vHeight = vv ? vv.height : window.innerHeight;
+                        const headerH = header ? header.getBoundingClientRect().height : 0;
+                        const quickH = quickActions ? quickActions.getBoundingClientRect().height : 0;
+                        const sendH = sendForm ? sendForm.getBoundingClientRect().height : 0;
+                        // leave a small padding
+                        const padding = 16;
+                        const available = Math.max(100, vHeight - headerH - quickH - sendH - padding);
+                        messagesContainer.style.maxHeight = available + 'px';
+
+                        // Detect keyboard likely open on mobile: if visualViewport height is much smaller than layout viewport
+                        let keyboardOpen = false;
+                        if (window.visualViewport) {
+                            const layoutH = window.innerHeight;
+                            if (layoutH - vHeight > 150) keyboardOpen = true; // threshold px
+                        }
+
+                        if (keyboardOpen) {
+                            // make the input float fixed above keyboard for reliability
+                            sendForm.classList.add('mobile-fixed');
+                            // ensure messages have room above the floating input
+                            messagesContainer.style.paddingBottom = (sendForm.getBoundingClientRect().height + 24) + 'px';
+                        } else {
+                            sendForm.classList.remove('mobile-fixed');
+                            messagesContainer.style.paddingBottom = '';
+                        }
+
+                        // always scroll to bottom when resizing
+                        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                    } catch (e) {
+                        // ignore
+                    }
+                }
+
+            // If visualViewport is available, listen to its resize event (best for mobile keyboards)
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', adjustForViewport);
+                window.visualViewport.addEventListener('scroll', adjustForViewport);
+            } else {
+                // Fallback to window resize
+                window.addEventListener('resize', adjustForViewport);
+            }
+
+            // Also adjust when the input gains focus (keyboard opening) and on focus out
+            inputEl.addEventListener('focus', () => setTimeout(adjustForViewport, 50));
+            inputEl.addEventListener('blur', () => {
+                // give keyboard time to hide then reset maxHeight to default
+                setTimeout(() => { messagesContainer.style.maxHeight = ''; }, 200);
+            });
+
+            // Run once on load
+            setTimeout(adjustForViewport, 100);
+
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            
+            menuBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && 
+                    !sidebar.contains(e.target) && 
+                    !menuBtn.contains(e.target) &&
+                    sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+    </script>
+</body>
+</html>

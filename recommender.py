@@ -1,8 +1,15 @@
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 
-# Load pre-trained model
-model = SentenceTransformer('all-MiniLM-L6-v2')
+# Lazy-load the model so importing this module doesn't block the app startup
+_model = None
+
+def get_model():
+    global _model
+    if _model is None:
+        _model = SentenceTransformer('all-MiniLM-L6-v2')
+    return _model
+
 
 def recommend(student_profile):
     # Load datasets
@@ -14,6 +21,7 @@ def recommend(student_profile):
     student_text = f"{student_profile['major']} {student_profile['projects']} {student_profile['desired_role']}"
 
     # Compute embeddings
+    model = get_model()
     student_embedding = model.encode(student_text, convert_to_tensor=True)
 
     def get_top_matches(df, text_column, top_n=3):

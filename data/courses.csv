@@ -1,0 +1,6 @@
+course_id,title,description,difficulty,duration
+CS101,Introduction to Programming,Learn fundamentals of programming with Python. Covers variables, control flow, functions, and basic data structures.,Beginner,8 weeks
+CS201,Data Structures,Advanced programming concepts including arrays, linked lists, trees, and algorithms.,Intermediate,10 weeks
+AI101,Introduction to AI,Overview of artificial intelligence concepts, machine learning basics, and neural networks.,Beginner,12 weeks
+ML201,Machine Learning,Practical machine learning with scikit-learn. Covers supervised and unsupervised learning.,Intermediate,10 weeks
+WD101,Web Development,Learn HTML, CSS, and JavaScript to build modern web applications.,Beginner,8 weeks

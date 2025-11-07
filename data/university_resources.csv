@@ -1,0 +1,6 @@
+resource_id,title,description,type,availability
+LIB001,University Library,Access to extensive digital and physical resources for research and learning.,Academic,24/7 online access
+TUT001,Tutoring Center,One-on-one and group tutoring sessions for various subjects.,Academic Support,By appointment
+CAR001,Career Services,Career counseling, resume workshops, and job placement assistance.,Career,Weekdays 9-5
+RES001,Research Labs,Access to state-of-the-art research facilities and equipment.,Research,Scheduled access
+STU001,Study Groups,Organized study groups for collaborative learning and peer support.,Peer Support,Flexible scheduling
